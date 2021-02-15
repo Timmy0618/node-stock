@@ -14,13 +14,14 @@ const createUnixSocketPool = async (config) => {
     });
 };
 function db(sql) {
-    createUnixSocketPool()
+    return createUnixSocketPool()
         .then((connection) => {
             return connection.query(sql);
         })
         .then((error, row) => {
             console.log(error);
             console.table(row);
+            return row;
         });
 }
 

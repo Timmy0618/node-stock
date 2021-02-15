@@ -8,7 +8,10 @@ app.use(express.static(path.join(`${__dirname}/public`)));
 
 app.get("/login", (req, res) => {
     console.log("test");
-    res.send(msg("SELECT * FROM Stock.User;"));
+    msg("SELECT * FROM Stock.User;")
+        .then(function (data) {
+            res.send(data);
+        });
 })
 
 app.get("/*", (req, res) => {
