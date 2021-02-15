@@ -2,11 +2,11 @@ FROM node:12-alpine
 
 WORKDIR /app
 
-COPY package*.json .
+COPY package*.json ./
 
 RUN yarn install
 
-COPY . .
+COPY . ./
 
 EXPOSE 3030
 
