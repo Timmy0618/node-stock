@@ -7,7 +7,7 @@ const createUnixSocketPool = async (config) => {
     return await mysql.createPool({
         user: "root", // e.g. 'my-db-user'
         password: "123456", // e.g. 'my-db-password'
-        database: "Stock", // e.g. 'my-database'
+        database: "stock", // e.g. 'my-database'
         host: "34.66.89.84",
         // Specify additional properties here.
         ...config,
