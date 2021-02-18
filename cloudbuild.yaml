@@ -2,7 +2,7 @@
 runtime: nodejs10
 # The following env variables may contain sensitive information that grants
 # anyone access to your database. Do not add this file to your source control.
-env_variables:
+env:
   DB_USER: "root"
   DB_PASS: "123456"
   DB_NAME: "stock"
