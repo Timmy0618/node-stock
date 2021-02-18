@@ -1,13 +1,23 @@
-#Set db env
-runtime: nodejs10
-# The following env variables may contain sensitive information that grants
-# anyone access to your database. Do not add this file to your source control.
-env:
-  DB_USER: "root"
-  DB_PASS: "123456"
-  DB_NAME: "stock"
-  # e.g. my-awesome-project:us-central1:my-cloud-sql-instance
-  CLOUD_SQL_CONNECTION_NAME: "stock-react:us-central1:stock"
+containers:
+  #Set db env
+  # The following env variables may contain sensitive information that grants
+  # anyone access to your database. Do not add this file to your source control.
+  env:
+    - name: DB_USER
+      valueFrom:
+        secretKeyRef:
+          name: cloudsql-db-credentials
+          key: root
+    - name: DB_PASS
+      valueFrom:
+        secretKeyRef:
+          name: cloudsql-db-credentials
+          key: 123456
+    - name: DB_NAME
+      valueFrom:
+        secretKeyRef:
+          name: cloudsql-db-credentials
+          key: stock
 
 steps:
 # Build the container image
