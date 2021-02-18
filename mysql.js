@@ -1,7 +1,7 @@
 const mysql = require("mysql");
 
 const createUnixSocketPool = async (config) => {
-    const dbSocketPath = process.env.DB_SOCKET_PATH || "/cloudsql/stock-react:us-central1:stock";
+    const dbSocketPath = process.env.DB_SOCKET_PATH || "/cloudsql";
 
     // Establish a connection to the database
     return await mysql.createPool({

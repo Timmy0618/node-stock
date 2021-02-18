@@ -2,13 +2,13 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const fetch = require('node-fetch');
-var msg = require('./mysql.js');
+var sql = require('./mysql.js');
 
 app.use(express.static(path.join(`${__dirname}/public`)));
 
 app.get("/login", (req, res) => {
     console.log("test");
-    msg("SELECT * FROM Stock.User;")
+    sql("SELECT * FROM Stock.User;")
         .then(function (data) {
             res.send(data);
         });
