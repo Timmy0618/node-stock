@@ -1,8 +1,8 @@
 containers:
+  - name: test
+    image: gcr.io/stock-react/test
   #Set db env
-  # The following env variables may contain sensitive information that grants
-  # anyone access to your database. Do not add this file to your source control.
-  env:
+    env:
     - name: DB_USER
       valueFrom:
         secretKeyRef:
