@@ -8,10 +8,18 @@ var get_stock_data = require('./test.js');
 app.use(express.static(path.join(`${__dirname}/public`)));
 
 
-
-app.get("/test", (req, res) => {
+app.get("/get_stock_data1", (req, res) => {
     console.log("stock_data");
-    get_stock_data('INTC')
+    get_stock_data(req.query.stockname)
+        .then(function(data){
+            res.send(data);
+        });
+})
+
+
+app.get("/get_stock_data", (req, res) => {
+    console.log("stock_data");
+    get_stock_data(req.query.stockname)
         .then(function(data){
             res.send(data);
         });
