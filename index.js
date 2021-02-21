@@ -1,24 +1,14 @@
 const express = require('express');
+var cors = require('cors')
 const path = require('path');
 const app = express();
 const fetch = require('node-fetch');
 var sql = require('./mysql.js');
-var get_stock_data = require('./test.js');
-
+var get_stock_data = require('./get_stock_data.js');
+//app.use(cors());
 app.use(express.static(path.join(`${__dirname}/public`)));
 
-
-app.get("/get_stock_data1", (req, res) => {
-    console.log("stock_data");
-    get_stock_data(req.query.stockname)
-        .then(function(data){
-            res.send(data);
-        });
-})
-
-
-app.get("/get_stock_data", (req, res) => {
-    console.log("stock_data");
+app.get("/get/stock/data", (req, res) => {
     get_stock_data(req.query.stockname)
         .then(function(data){
             res.send(data);
