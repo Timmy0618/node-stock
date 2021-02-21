@@ -1,24 +1,3 @@
-containers:
-  - name: test
-    image: gcr.io/stock-react/test
-  #Set db env
-    env:
-    - name: DB_USER
-      valueFrom:
-        secretKeyRef:
-          name: cloudsql-db-credentials
-          key: root
-    - name: DB_PASS
-      valueFrom:
-        secretKeyRef:
-          name: cloudsql-db-credentials
-          key: 123456
-    - name: DB_NAME
-      valueFrom:
-        secretKeyRef:
-          name: cloudsql-db-credentials
-          key: stock
-
 steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
